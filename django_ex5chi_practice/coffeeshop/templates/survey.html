@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>* 커피전문점에 대한 소비자 인식조사 *</h2>
+<form action="insert" method="post">{%csrf_token%}
+귀하의 성별은? &nbsp;&nbsp;<input type='radio' name='gender' value = "남" checked>남&nbsp;<input type='radio' name='gender' value = "여">여
+<br>
+귀하의 나이은? &nbsp;&nbsp;<input type='radio' name='age' value = "10" checked>10대&nbsp;<input type='radio' name='age' value = "20">20대&nbsp;<input type='radio' name='age' value = "30">30대&nbsp;<input type='radio' name='age' value = "40">40대&nbsp;<input type='radio' name='age' value = "50">50대 이상
+<br>
+선호하는 커피전문점은? &nbsp;&nbsp;<input type='radio' name='co_survey' value = "스타벅스" checked>스타벅스&nbsp;<input type='radio' name='co_survey' value = "커피빈">커피빈&nbsp;<input type='radio' name='co_survey' value = "이디야">이디야&nbsp;<input type='radio' name='co_survey' value = "탐앤탐스">탐앤탐스
+<br>
+<div id = "btn" style = "margin: auto; width: 90%">
+<input type = "submit" id ="btnSubmit" value = "설문완료">&nbsp;&nbsp;<input type = "reset" value = "초기화">
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btnOk").on("click", function(){
+		//alert('a');
+		$(".showData").empty();
+		
+		$.ajax({
+			url:'/calldb',
+			type:'get',
+			dataType:'json',
+			success:function(data){
+					alert('a');	
+			},
+			error:function(){
+				$(".showData").text('처리 오류');
+				
+			}
+		});
+	
+	});
+});
+
+</script>
+</head>
+<body>
+직원 정보 입력 
+직급 : <input type="text" id = "jik">
+<input type="button" value="결과보기" id="btnOk">
+<div id="showData">결과보기</div>
+</body>
+</html>

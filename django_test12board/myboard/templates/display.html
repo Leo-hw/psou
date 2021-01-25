@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	* 투표 질문 항목 선택 *
+	<br> {% if q_list %}
+		<ul>
+		{% for q in q_list %}
+		<!-- 
+			<li><a href="/gogo/{{q.id}}">{{q.question_text}}</a></li>
+		 -->
+		 
+		 	<li> <a href="{% url 'detail' q.id %}">{{q.question_text}}</a></li>
+		 {% comment "여러 줄 주석"  %}		   /gogo/1 
+		  {% endcomment %}
+		 
+		{% endfor %}
+		</ul>
+	{% else %}
+	<p>질문 항목이 없어 투표할 수 없어요.</p>
+
+
+	{% endif %}
+</body>
+</html>

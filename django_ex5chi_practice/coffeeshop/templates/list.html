@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>* 커피전문점에 대한 소비자 인식조사 결과 *</h2>
+{{ctab|safe}}
+<br>
+{% if p < 0.05  %}
+p값이 {{p}}이므로 0.05미만의 값을 가지므로 성별에 따라 선호하는 커피브랜드에는 <b>차이가 있다(귀무가설 기각)</b>
+{% else %}
+p값이 {{p}}이므로 0.05이상의 값을 가지므로 성별에 따라 선호하는 커피브랜드에는 <b>차이가 없다(귀무가설 기각 불가)</b>
+{% endif %}
+<br>
+<br>
+<img src = '/static/image/test_matplot1.png'>
+<br>
+<br>
+<a href = 'survey'>다시 설문조사 하기</a>
+</body>
+</html>

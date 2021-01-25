@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="surveyok" method="post">{%csrf_token%}
+귀하의 성별은 ?  &nbsp;		남 <input type="radio" name = 'gender', value = '남'> 여 <input type="radio" name = 'gender' value='여'> <br>
+귀하의 나이는 ?  &nbsp;10대 <input type="radio" name = 'age', value = '10'> 20대 <input type="radio" name = 'age', value = '20'> 30대 <input type="radio" name = 'age', value = '30'> 40대 <input type="radio" name = 'age', value = '40'> 50대 <input type="radio" name = 'age', value = '50'> <br>
+선호하는 커피 전문점은? &nbsp;스타벅스 <input type="radio" name = 'co_survey', value ='스타벅스'> 커피빈 <input type="radio" name = 'co_survey', value ='커피빈'> 이디아 <input type="radio" name = 'co_survey', value ='이디아'>  탐앤탐스 <input type="radio" name = 'co_survey', value ='탐앤탐스'>
+<br>
+<br>
+<input type="submit" value="설문 완료" id = 'btnSubmit'>
+<input type="reset" value="초기화" id='btnReset'>
+</form>
+</body>
+</html>

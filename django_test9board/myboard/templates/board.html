@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 합쳐지고 최소화된 최신 CSS 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+-->
+
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+
+</head>
+<body>
+	<h3 style="text-align: center;">게시판 목록</h3>
+	<a href="/board/insert/">글쓰기</a>
+	<br>
+	<table style="width: 70%;" class="table">
+	<thead class="thead-dark" style="height: 70%;">
+		<tr>
+			<th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th>
+		</tr>
+		  </thead>
+		{% if data %}
+		{% for d in data %}
+		<tr>
+			<td>{{d.id}}</td>
+			<td>
+			{% with ''|center:d.nested as range %}
+				{% for _ in range %}
+					&nbsp;&nbsp;
+				{% endfor %}
+			{% endwith  %}
+			<a href="/board/content?id={{d.id}}&page={{data.number}}">{{d.title}}</td>
+			<td>{{d.name}}</td>
+			<td>{{d.bdate.year}}.{{d.bdate.month}}.{{d.bdate.day}}</td>
+			<td>{{d.readcnt}}</td>
+		</tr>
+		{% endfor %}
+		<tr>
+		 
+			<td colspan="5" style="text-align: center;">
+			<br>
+			<br>
+					{% if data.paginator.num_pages > 1 %}		{# paginator.num_pages : 전체 페이지 수 #}
+					<div>
+						{% if data.has_previous %}
+							<a href="/board/list/?page={{data.previous_page_number}}">&laquo;이전</a>
+						{% endif %}
+						
+						{% if data.has_next %}
+							<a href="/board/list/?page={{data.next_page_number}}">다음&raquo;</a>
+						{% endif %}
+						&nbsp;&nbsp;
+						(페이지 : {{data.number}}/{{data.paginator.num_pages}})
+						
+						
+					</div>
+					{% endif %}
+			</td>
+		</tr>
+			<tr>
+		   		<td colspan="6" style="text-align: center;">
+		           <form action="/board/search/" method="post">{%csrf_token%}
+		                     <select name="s_type">
+		                                <option value="title" selected>글제목</option>
+		                                <option value="name">작성자</option>
+		                     </select>
+		                     <input type="text" name="s_value">
+		                     <input type="submit" value="검색">
+		           </form>
+		   </td>
+		</tr>
+		{% else %}
+		<tr> 
+			<td colspan="5"> 글이 없습니다. </td>
+		</tr>
+		{% endif %}
+	</table>
+		<!-- 
+	{# 참고 with 블럭으로 변수 범위 제한 - with 안에 사용된 변수는 with 블럭 안에서만 유효 #}
+	{% with list='1 2 3 4 5 ' %}
+		{% for n in list.split %}
+			{{n}}
+		{% endfor %}
+	{% endwith %}
+	<br>
+	{% with '1 2 3 4 5 ' as range %}
+		{% for n in range %}
+			{{n}}
+		{% endfor %}
+	{% endwith %}
+	 -->
+</body>
+</html>

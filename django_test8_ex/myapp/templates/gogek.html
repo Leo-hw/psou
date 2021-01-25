@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("btnSubmit").onclick = function(){
+		chkData();
+	}
+}
+function chkData(){
+	//alert('a');
+	if(frm.name.value=== ""|| frm.tel.value===""){
+		alert("입력자료를 모두 채우시오");
+		return;
+	}
+	frm.method="post"
+	frm.action="/gogek/search/"
+	frm.submit();
+}
+</script>
+</head>
+<body>
+<h2>고객정보 입력</h2>
+<form action="gogek/search/" method="post" name="frm">{%csrf_token%}
+<table>
+<tr>
+<td>
+고객명 : <input type="text" name = "name"> 
+고객전화 : <input type="text" name = "tel"> 
+ <input type="button" id = "btnSubmit" value="확인">
+ </td>
+ </tr>
+ </table>
+ </form>
+</body>
+</html>

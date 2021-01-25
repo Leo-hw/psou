@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> jaryo</title>
+</head>
+<body>
+
+
+
+{# Django 의  Template Language  사용#}
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% if articles.count > 0 %}
+	{% for a in articles %}
+		<b>{{a.code}}</b>&nbsp;&nbsp;{{a.name}}&nbsp;&nbsp;{{a.price}}&nbsp;&nbsp;{{a.pub_date}} <br>
+	{% endfor %}
+{% else %}
+		<p> -자료가 없어요-</p>
+
+{% endif %}
+
+{% endblock %}
+</body>
+</html>

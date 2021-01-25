@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+{{ dff | safe }} 
+<br>
+{%  if  p > 0.05 %}
+p 값이 {{ p | safe }} 이므로  0.05  이상의 값을 가지므로 성별에 따라 선호하는 커피 브랜드에는 차이가 없다.(귀무가설 채택)
+{%  elif  p  < 0.05 %}
+p 값이 {{ p | safe }} 이므로  0.05  미만의 값을 가지므로 성별에 따라 선호하는 커피 브랜드에는 차이가 있다.(귀무가설 기각)
+{% endif %}
+<img src = '/static/images/test_matplot1.png'>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//alert('a');
+		$("#btn1").click(function(){
+			var msg = $("#txtMsg").val();
+			//alert(msg);
+			$("#showData1").empty();
+			
+			$.ajax({
+				url:'startajax',
+				type:'get',
+				data:{'msg':msg},
+				dataType:'json',
+				success:function(data){
+					//alert(data);
+					for(k in data){
+						var ss = k + "<br>" +data[k];
+						}
+					ss = "<br><b>" + data['key'] +"</b>"; 
+					$("#showData1").html(ss);
+				},
+				error:function(){
+					$("#showData1").html('<h2>에러</h2>');
+				}
+			});
+		});
+		
+		$("#btn2").click(function(){
+				//alert('2');
+			$.ajax({
+				url:'goajax',
+				type:'get',
+				dataType:'json',
+				success:function(data){
+					//alert(data)
+					str = "";
+					$.each(data, function(ind, entry){
+						str += entry['irum'] + ', ' + entry['nai']+"<br>";
+						$("#showData2").html(str);
+					});
+				},
+				error:function(){
+					$("#showData2").html('<h2>오류</h2>');
+				}
+				
+				
+			});
+		});
+		
+	});
+</script>
+</head>
+<body>
+	ajax 연습 자료 입력 :
+	<input type="text" id="txtMsg" value="우승을 기대하며" />
+	<br>
+	<button id="btn1">click1</button>
+	<br>
+	<div id="showData1">결과</div>
+	<hr>
+	<button id="btn2">click2</button>
+	<br>
+	<div id="showData2">결과2</div>
+
+</body>
+</html>

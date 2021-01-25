@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h2>**** 방명록 ****</h2>
+	<a href='insert/'>자료 추가</a>
+	<a href='/guest/insert/'>자료 추가</a>			<!-- 			<== 둘은 같음        -->
+	
+	<table border="1">
+		<tr>
+			<th>아이디</th>
+			<th>글 제목</th>
+			<th>내용</th>
+			<th>등록일</th>
+		</tr>
+		{% if gdata %} 
+			{% for g in gdata %} 
+			<tr>
+			<td>{{g.id}}</td>
+			<td>{{g.title}}</td>
+			<td>{{g.content}}</td>
+			<td>{{g.regdate}}</td>
+			</tr>
+			{% endfor %} 
+		{% else %}
+		<tr>
+			<td colspan="4" style="text-align: center;">자료가 없어요</td>
+		</tr>
+		{% endif %} 
+
+	</table>
+</body>
+</html>

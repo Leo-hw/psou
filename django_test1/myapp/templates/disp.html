@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--
+<script type="text/javascript">
+window.onload = function(){
+	alert('자바 스크립트  수행')
+}
+</script>
+-->
+<link rel = "stylesheet" type = "text/css" href="../static/css/test.css">
+<script type="text/javascript" src="/static/js/test.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#myImg").click(function(){
+		abc();
+	});
+});
+</script>
+</head>
+<body>
+world 요청 수신
+<img src='https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/103925711480560-59fac0f2-d555-4da8-a509-c67dbced3058.jpg' />
+<br>
+
+<img src='/static/images/logo.jpg' id = 'myImg' />
+<!--  settings.py 에서 세팅을 해줘야 함. -->
+</body>
+</html>

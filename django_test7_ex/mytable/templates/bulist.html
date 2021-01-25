@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>부서번호</th>
+			<th>부서명</th>
+			<th>부서 전화</th>
+			<th>지역명</th>
+		</tr>
+		{% for b in busers %}
+		<tr>
+			<td> {{b.buser_no}} </td>
+			<td><a href="/jiksearchlist?buser_num={{b.buser_no}}">{{b.buser_name}} </a></td>
+			<td>{{b.buser_loc}}</td>
+			<td>{{b.buser_tel}}</td>
+		</tr>
+		{% endfor %}
+		<tr>
+		<td colspan="4">부서수 : {{bcount}}</td>
+	</table>
+</body>
+</html>

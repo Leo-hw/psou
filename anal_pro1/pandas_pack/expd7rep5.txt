@@ -1,0 +1,21 @@
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>apple</th>
+      <td>10</td>
+      <td>1500</td>
+    </tr>
+    <tr>
+      <th>orange</th>
+      <td>5</td>
+      <td>1000</td>
+    </tr>
+  </tbody>
+</table>

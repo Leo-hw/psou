@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>직원번호</th>
+			<th>직원명</th>
+			<th>직급</th>
+			<th>관리고객</th>
+		</tr>
+		{% for j in jikwons %}
+		<tr>
+			<td> {{j.jikwon_no}} </td>
+			<td><a href="/gogeksearchlist?gogek_damsano={{j.jikwon_no}}">{{j.jikwon_name}} </a></td>
+			<td>{{j.jikwon_jik}}</td>
+			<td>{{j.gogeksu}}</td>
+		</tr>
+		{% endfor %}
+		
+	</table>
+</body>
+</html>

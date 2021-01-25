@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title> {% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+<script type="text/javascript">
+window.onload = function(){
+	
+	document.getElementById("btnUpdate").onclick = function(){
+		chkFunc();
+	}
+	
+	document.getElementById("btnBack").onclick = function(){
+		history.back();
+	}
+	
+}
+function chkFunc(){
+	if (frm.name.value === '' || frm.up_passwd.value === ''){
+				//... 더 많이 해야하지만 여기서는 생략
+				alert('입력자료를 모두 채우세요');
+				return;
+	}
+	frm.submit();					// Ecma script
+}
+
+
+</script>
+</head>
+<body>
+	<h2>게시물 수정</h2>
+	<form action="/board/updateok/" method="post" name="frm">{% csrf_token %}
+	<input type="hidden" name="id" value="{{data_one.id}}">
+	<table style="width: 70%;" class="table table-striped">
+			<tr>
+				<td>작성자</td>
+				<td><input type="text" name="name" value="{{data_one.name}}"> </td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="text" name="up_passwd"> </td>
+			</tr>
+			<tr>
+				<td>이메일</td>
+				<td><input type="text" name="mail" value="{{data_one.mail}}"> </td>
+			</tr>
+			<tr>
+				<td>제목</td>
+				<td><input type="text" name="title" size="48" value="{{data_one.title}}"> </td>
+			</tr>
+			<tr>
+				<td>내용</td>
+				<td>
+					<textarea rows="5" cols="50" name="cont">{{data_one.cont}}</textarea> 
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+				<input type="button" id="btnUpdate" value="수정"> 
+				<input type="button" id="btnBack" value="뒤로"></td>
+			</tr>
+		</table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>고객정보 입력</h3>
+<form action="infosearch" method = "post">{% csrf_token %}
+	고객명 : <input type = "text" name = "gogek_name" 
+				value = {{info.gogek_name}}>&nbsp;&nbsp;
+	고객전화 : <input type = "text" name = "gogek_tel" 
+				value = {{info.gogek_tel}}>&nbsp;&nbsp;
+	<input type = "submit" value = "확인">
+</form>
+<br>
+{% if info %}
+<h5>담당직원</h5>
+직원명 : {{info.gogek_damsano.jikwon_name}}&nbsp;&nbsp;
+직급 : {{info.gogek_damsano.jikwon_jik}}
+<br>
+부서명 : {{info.gogek_damsano.buser_num.buser_name}}&nbsp;&nbsp;
+부서전화 : {{info.gogek_damsano.buser_num.buser_tel}}
+<br>
+{% if info.gogek_damsano.jikwon_gen == '여' %}
+	<img src = '/static/image/여자.png' width = 80px;>
+{% elif info.gogek_damsano.jikwon_gen == '남' %}
+	<img src = '/static/image/남자.png' width = 80px;>
+{% endif %}
+<br>
+<b>근무년수 : {{info.gogek_damsano.jikwon_ibsail}}년</b>
+<br>
+<b>평점 : {{info.gogek_damsano.jikwon_rating}}</b>
+{% endif %}
+</body>
+</html>

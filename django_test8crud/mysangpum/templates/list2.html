@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>상품정보</h2>
+	<div style="width: 80%; text-align: right;">
+		<a href="/sangpum/insert">상품추가</a>
+	</div>
+	<table style="width: 80%;">
+		<tr>
+			<th>코드</th>
+			<th>상품명</th>
+			<th>수량</th>
+			<th>단가</th>
+		</tr>
+		{% if sangpums %} {% for s in sangpums %}
+		<tr>
+			<td>{{s.code}}</td>
+			<td>{{s.sang}}</td>
+			<td>{{s.su}}</td>
+			<td>{{s.dan}}</td>
+			<td><a href="/sangpum/update?code={{s.code}}">수정</a> <a
+				href="/sangpum/delete?code={{s.code}}">삭제</a></td>
+		</tr>
+		{% endfor %}
+		<!--  페이지 링크 표시 -->
+		{# 얘도 주석 #}
+		<tr>
+		 
+			<td colspan="5" style="text-align: center;">
+			<br>
+			<br>
+					{% if sangpums.paginator.num_pages > 1 %}		{# paginator.num_pages : 전체 페이지 수 #}
+					<div>
+						{% if sangpums.has_previous %}
+							<a href="/sangpum/list/?page={{sangpums.previous_page_number}}">&laquo;이전</a>
+						{% endif %}
+						
+						{% if sangpums.has_next %}
+							<a href="/sangpum/list/?page={{sangpums.next_page_number}}">다음&raquo;</a>
+						{% endif %}
+						&nbsp;&nbsp;
+						(페이지 : {{sangpums.number}}/{{sangpums.paginator.num_pages}})
+						<hr>
+						{% for p in allpage %}		{# 페이지 번호를 나열하는 방법 시도 #}
+							{% if p > 0 %}
+								{% if p == sangpums.number %}		{# 현재 페이지는 링크에서 제외 #}
+										[{{p}}]
+								{% elif p != sangpums.number %}
+										<a href='/sangpum/list/?page={{p}}'>[{{p}}]</a>
+								{% endif %}	
+							{% endif %}
+						{% endfor %}
+						
+					</div>
+					{% endif %}
+			</td>
+		</tr>
+
+		{% else %}
+		<tr>
+			<td colspan="5">자료가 없어요</td>
+		</tr>
+		{% endif %}
+
+	</table>
+	
+</body>
+</html>

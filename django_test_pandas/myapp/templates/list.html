@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+{{ gdf | safe }}
+<br>
+{{pdf | safe }}
+	<!-- 
+		<table>
+		<tr>
+			<th>사번</th>
+			<th>직원명</th>
+			<th>부서명</th>
+			<th>직급</th>
+			<th>근무년수</th>
+			<th>연봉</th>
+		</tr>
+		{% if gdf %} 
+		{% for d in gdf %} 
+		<tr>
+			<td>{d.jikwon_no}</td>
+			<td>{d.jikwon_name}</td>
+			
+		<td>{d.buser_name}</td>
+			
+			<td>{d.jikwon_jik}</td>
+			<td>{d.jikwon_ibsail}</td>
+			<td>{d.jikwon_pay}</td>
+		</tr>
+ 		{% endfor %}
+		 {% endif %}
+		 -->
+	</table>
+</body>
+</html>

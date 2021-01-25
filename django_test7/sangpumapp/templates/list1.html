@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>제조사 자료</h2>
+	<table border="1">
+		<tr>
+			<th>코드</th>
+			<th>제조사</th>
+			<th>전화번호</th>
+			<th>주소</th>
+		</tr>
+		{% for m in makers %}
+		<tr>
+			<td>{{m.id}}</td>
+			<td><a href="/list3?id={{m.id}}">{{m.mname}}</a></td>
+			<td>{{m.tel}}</td>
+			<td>{{m.addr}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+</body>
+</html>

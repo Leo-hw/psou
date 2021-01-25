@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+{{question.question_text}}		<!-- {{question}} // {{question.question_text}}   	둘의 결과는 같다. -->
+<b style="color: red"><!-- 투표 항목을 선택하지 않은 경우 에러 메세지를 출력 -->
+{% if error_msg %}
+{{error_msg}}
+{% endif %}
+</b>
+<form action="{% url 'vote' question.id %}" method="post">{% csrf_token %} <!--  /gogo/2/vote -->
+{# {{forloop.counter}} // {{choice.id}}   요런 것도 찍어보는 게 좋음. 운동에 대해서도 labeling이 되기 때문에 그 뒤에 id 가 있기 때문에, 관리자 record 번호로 구분. #}
+{% for choice in question.choice_set.all %}		{# Choice 객체를 반환 #}
+<input type="radio" name="choice" id="choice{{forloop.counter}}" value="{{choice.id}}">
+<label for="choice{{forloop.counter}}">{{choice.choice_text}}</label>
+
+{% endfor %}
+<br>
+<input type="submit" value="투표확인">
+</form>
+</body>
+</html>

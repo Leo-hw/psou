@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/static/js/abc.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#mymain").click(function() {
+			abc();
+		});
+	});
+</script>
+</head>
+<body>
+
+	{% block content %} {% if table.count > 0 %} {% for a in table %}
+	<table>
+		<tr>
+			<th>아이디</th>
+		</tr>
+		<b>{{a.m_id}}</b>&nbsp;&nbsp;{{a.irum}}&nbsp;&nbsp;{{a.juso}}&nbsp;&nbsp;{{a.nai}}
+		<br>
+	</table>
+	{% endfor %} {% else %}
+	<p>-자료가 없어요-</p>
+
+	{% endif %} {% endblock %}
+	<hr>
+	<!--  <a href="#" id='mymain'>메인으로</a>-->
+	<input type="button" id='mymain' name='mymain' value="메인으로">
+</body>
+</html>

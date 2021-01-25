@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+		{% for j in datas %} 
+		<tr>
+			<td>직원명</td><td>{{j.0}}</td>
+			<td>직급</td><td>{{j.1}}</td>
+			<td>부서</td><td>{{j.2}}</td>
+			<td>부서전화</td><td>{{j.3}}</td>
+		</tr>
+
+{% endfor %}
+	</table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table style="align-content: center;">
+		<tr>
+			<th>고객번호</th>
+			<th>고객명</th>
+			<th>성별</th>
+			<th>고객전화</th>
+		</tr>
+		{% for g in gogeks %}
+		<tr>
+			<td>{{g.gogek_no}} </td>
+			<td>{{g.gogek_name}}</td>
+			<td>
+	
+			{{g.gogek_gen}}
+			
+			</td>
+			<td>{{g.gogek_tel}}</td>
+		</tr>
+		{% endfor %}
+		<tr>
+		<td colspan="4">고객수 : {{gcount}}</td>
+	</table>
+</body>
+</html>
